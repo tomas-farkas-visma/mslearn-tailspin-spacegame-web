@@ -20,7 +20,10 @@ namespace Tests
                 .Assembly
                 .GetManifestResourceStream("Tailspin.SpaceGame.Web.SampleData.scores.json"))
             {
-                _scoreRepository = new LocalDocumentDBRepository<Score>(scoresData);
+                if (scoresData == null)
+                    throw new FileNotFoundException("Embedded resource not found.");
+
+                _scoreRepository = new LocalDocumentDBRepository<Score>("SampleData\\scores.json");
             }
         }
 
