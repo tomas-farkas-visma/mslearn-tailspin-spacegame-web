@@ -23,7 +23,7 @@ namespace Tests
                 if (scoresData == null)
                     throw new FileNotFoundException("Embedded resource not found.");
 
-                _scoreRepository = new LocalDocumentDBRepository<Score>("SampleData\\scores.json");
+                _scoreRepository = new LocalDocumentDBRepository<Score>(Path.Combine("SampleData", "scores.json"));
             }
         }
 
