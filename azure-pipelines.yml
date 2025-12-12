@@ -2,6 +2,7 @@ trigger:
 - '*'
 
 variables:
+  appName: 'Tailspin.SpaceGame.Web'
   buildConfiguration: 'Release'
   releaseBranchName: 'release'
 
@@ -17,7 +18,7 @@ stages:
       - npm
 
     variables:
-      wwwrootDir: 'Tailspin.SpaceGame.Web/wwwroot'
+      wwwrootDir: '$(appName)/wwwroot'
       dotnetSdkVersion: '9.x'
 
     steps:
@@ -87,4 +88,4 @@ stages:
             inputs:
               azureSubscription: 'Resource Manager - Tailspin - Space Game'
               appName: '$(WebAppNameDev)'
-              package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
+              package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/$(appName).zip'
