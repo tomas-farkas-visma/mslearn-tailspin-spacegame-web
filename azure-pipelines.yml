@@ -61,7 +61,7 @@ stages:
 
 - stage: 'Dev'
   displayName: 'Deploy to the dev environment'
-  dependsOn: Build
+  dependsOn: 'Build'
   condition: |
     and
     (
@@ -71,7 +71,7 @@ stages:
   jobs:
   - deployment: Deploy
     pool:
-      vmImage: 'ubuntu-20.04'
+      vmImage: 'ubuntu-latest'
     environment: dev
     variables:
     - group: Release
