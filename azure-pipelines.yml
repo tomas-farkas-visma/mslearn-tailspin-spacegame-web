@@ -48,6 +48,7 @@ stages:
         command: 'restore'
         projects: '**/*.csproj'
 
+    # Debug build 
     # - template: templates/build.yml
     #   parameters:
     #     buildConfiguration: 'Debug'
